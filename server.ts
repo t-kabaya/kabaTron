@@ -1,5 +1,7 @@
 // Expressを読み込みます。
+// @ts-ignore
 import express  from 'express';
+// @ts-ignore
 import bodyParser from 'body-parser';
 
 // Expressアプリケーションを作成します。
