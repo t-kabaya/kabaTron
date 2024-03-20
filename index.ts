@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios  from "axios";
 
 const kabaTron = async (body: any) => {
   // 引数がオブジェクトでない場合は警告を出す
@@ -6,7 +6,7 @@ const kabaTron = async (body: any) => {
     console.log("kabaTron: param must be object");
     return;
   }
-  axios.post("http://localhost:7777", body);
+  await axios.post("http://localhost:7777", body);
 };
 
 export default kabaTron;
