@@ -2,5 +2,7 @@
   "declaration": true,
   "compilerOptions": {
     "outDir": "./dist",
+    // d.tsファイルを生成します
+    "declaration": true,
   },
 }
