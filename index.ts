@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-axios.get('http://example.com/path')
+axios.post('http://localhost:7777',{})
   .then(function (response) {
     // レスポンスを処理します
     console.log(response.data);

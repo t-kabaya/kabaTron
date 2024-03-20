@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(bodyParser.json());
 
 // ポート番号を設定します。
 const PORT = 7777;
@@ -19,7 +18,7 @@ const PORT = 7777;
 // TODO: Bodyを受け取るようにする。
 app.post('/', (req, res) => {
   try {
-    console.log('kabaTron: ', req.query);
+    console.log('kabaTron: ', req.body);
     res.send('ok');
   } catch (e) {
     // TODO: エラーメッセージを適切なものにする。
@@ -29,5 +28,5 @@ app.post('/', (req, res) => {
 
 // サーバーを起動します。
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`kabaTron running on http://localhost:${PORT}`);
 });
