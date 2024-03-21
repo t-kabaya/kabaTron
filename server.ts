@@ -1,8 +1,6 @@
-// Expressを読み込みます。
 import express from "express";
 import bodyParser from "body-parser";
 
-// Expressアプリケーションを作成します。
 const app = express();
 // bodyをjsonで受け取れるようにする
 app.use(bodyParser.json());
@@ -17,7 +15,6 @@ app.use(
 const PORT = 7777;
 
 // POSTリクエストのルーティングを定義します。
-// TODO: Bodyを受け取るようにする。
 app.post("/", (req, res) => {
   try {
     console.log("kabaTron: ", req.body);
