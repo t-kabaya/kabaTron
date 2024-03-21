@@ -4,5 +4,6 @@
     "outDir": "./dist",
     // d.tsファイルを生成します
     "declaration": true,
+    "esModuleInterop": true,
   },
 }
