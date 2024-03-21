@@ -35,22 +35,55 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var axios_1 = require("axios");
-var kabaTron = function (body) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                // 引数がオブジェクトでない場合は警告を出す
-                if (typeof body !== "object" || body === null || body === undefined) {
-                    console.log("kabaTron: param must be object");
-                    return [2 /*return*/];
-                }
-                return [4 /*yield*/, axios_1.default.post("http://localhost:7777", body)];
-            case 1:
-                _a.sent();
-                return [2 /*return*/];
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
         }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var axios_1 = __importDefault(require("axios"));
+var kabaTron = function (body_1) {
+    var args_1 = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        args_1[_i - 1] = arguments[_i];
+    }
+    return __awaiter(void 0, __spreadArray([body_1], args_1, true), void 0, function (body, url) {
+        var response;
+        if (url === void 0) { url = "http://localhost:7777"; }
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    // 引数がオブジェクトでない場合は警告を出す
+                    if (typeof body !== "object" || body === null || body === undefined) {
+                        console.log("kabaTron: param must be object");
+                        return [2 /*return*/];
+                    }
+                    return [4 /*yield*/, axios_1.default.post(url, body)];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, fetch(url, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(body),
+                        })];
+                case 2:
+                    response = _a.sent();
+                    if (!response.ok) {
+                        throw new Error("kabaTron: Failed to fetch: ".concat(response.statusText));
+                    }
+                    return [2 /*return*/];
+            }
+        });
     });
-}); };
+};
+kabaTron({ message: "Hello, kabaTron!" }, undefined);
 exports.default = kabaTron;

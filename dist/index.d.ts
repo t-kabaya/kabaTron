@@ -1,2 +1,2 @@
-declare const kabaTron: (body: any) => Promise<void>;
+declare const kabaTron: (body: any, url?: string) => Promise<void>;
 export default kabaTron;
