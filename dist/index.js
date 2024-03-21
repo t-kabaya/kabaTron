@@ -44,11 +44,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var axios_1 = __importDefault(require("axios"));
 var kabaTron = function (body_1) {
     var args_1 = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -65,9 +61,6 @@ var kabaTron = function (body_1) {
                         console.log("kabaTron: param must be object");
                         return [2 /*return*/];
                     }
-                    return [4 /*yield*/, axios_1.default.post(url, body)];
-                case 1:
-                    _a.sent();
                     return [4 /*yield*/, fetch(url, {
                             method: "POST",
                             headers: {
@@ -75,7 +68,7 @@ var kabaTron = function (body_1) {
                             },
                             body: JSON.stringify(body),
                         })];
-                case 2:
+                case 1:
                     response = _a.sent();
                     if (!response.ok) {
                         throw new Error("kabaTron: Failed to fetch: ".concat(response.statusText));
@@ -85,5 +78,4 @@ var kabaTron = function (body_1) {
         });
     });
 };
-kabaTron({ message: "Hello, kabaTron!" }, undefined);
 exports.default = kabaTron;
