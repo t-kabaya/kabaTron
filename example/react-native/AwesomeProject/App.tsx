@@ -9,8 +9,8 @@ import {
 
 function App(): React.JSX.Element {
   const onPressSendLog = () => {
-    const ipAddress = '192.168.0.32'
-    kabaTron({ message: 'Hello, KabaTron!' }, `http://${ipAddress}:7777/`);
+    const ipAddress = '10.0.2.2'
+    kabaTron({ message: 'Hello, KabaTron!' });
   }
 
   return (

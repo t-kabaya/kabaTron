@@ -45,6 +45,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Androidシュミレーターのみ対応している。
 var kabaTron = function (body_1) {
     var args_1 = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -52,7 +53,7 @@ var kabaTron = function (body_1) {
     }
     return __awaiter(void 0, __spreadArray([body_1], args_1, true), void 0, function (body, url) {
         var response;
-        if (url === void 0) { url = "http://localhost:7777"; }
+        if (url === void 0) { url = "http:///10.0.2.2:7777"; }
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -71,7 +72,7 @@ var kabaTron = function (body_1) {
                 case 1:
                     response = _a.sent();
                     if (!response.ok) {
-                        throw new Error("kabaTron: Failed to fetch: ".concat(response.statusText));
+                        console.log("kabaTron: Failed to fetch: ".concat(response.statusText));
                     }
                     return [2 /*return*/];
             }

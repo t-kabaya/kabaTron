@@ -1,4 +1,5 @@
-const kabaTron = async (body: any, url: string = "http://localhost:7777") => {
+// Androidシュミレーターのみ対応している。
+const kabaTron = async (body: any, url: string = "http:///10.0.2.2:7777") => {
   // 引数がオブジェクトでない場合は警告を出す
   if (typeof body !== "object" || body === null || body === undefined) {
     console.log("kabaTron: param must be object");
@@ -14,7 +15,7 @@ const kabaTron = async (body: any, url: string = "http://localhost:7777") => {
   });
 
   if (!response.ok) {
-    throw new Error(`kabaTron: Failed to fetch: ${response.statusText}`);
+    console.log(`kabaTron: Failed to fetch: ${response.statusText}`);
   }
 };
 
